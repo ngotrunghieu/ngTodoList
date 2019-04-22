@@ -2,13 +2,306 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <div class="card text-left">
-      <app-todo-header></app-todo-header>
+      <div class="card-header">
+        <button class="btn btn-sm btn-primary" (click)="addTodo()">
+          <i class="fas fa-plus-circle"></i>
+          Add Todo
+        </button>
+      </div>
       <div class="card-body" style="margin-bottom: -15px">
-        <app-todo-content></app-todo-content>
-        <app-todo-nav-page></app-todo-nav-page>
+        <table class="table table-sm table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">
+              <div style="float: left; margin-bottom: 8px">
+                <span style="font-weight: normal">.No</span>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="dropdown" style="float: left">
+                <button class="btn btn-outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-filter"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding: 0">
+                  <div class="card text-left" style="border: none">
+                    <div class="card-header" style="padding: 5px">
+                      <div class="input-group">
+                        <label>
+                          <input type="text" class="form-control" placeholder="First"/>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card-body" style="padding: 5px">
+                      <a class="dropdown-item" href="#">Mark</a>
+                      <a class="dropdown-item" href="#">Jacob</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left; margin-top: 5px">
+                <span style="font-weight: normal">Todo Name</span>
+              </div>
+              <div style="float: right">
+                <button class="btn btn-outline">
+                  <i class="fas fa-sort"></i>
+                </button>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="dropdown" style="float: left">
+                <button class="btn btn-outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-filter"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding: 0">
+                  <div class="card text-left" style="border: none">
+                    <div class="card-header" style="padding: 5px">
+                      <div class="input-group">
+                        <label>
+                          <input type="text" class="form-control" placeholder="First"/>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card-body" style="padding: 5px">
+                      <a class="dropdown-item" href="#">Otto</a>
+                      <a class="dropdown-item" href="#">Thornton</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left; margin-top: 5px">
+                <span style="font-weight: normal">Date Create</span>
+              </div>
+              <div style="float: right">
+                <button class="btn btn-outline">
+                  <i class="fas fa-sort"></i>
+                </button>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="dropdown" style="float: left">
+                <button class="btn btn-outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-filter"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding: 0">
+                  <div class="card text-left" style="border: none">
+                    <div class="card-header" style="padding: 5px">
+                      <div class="input-group">
+                        <label>
+                          <input type="text" class="form-control" placeholder="First"/>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card-body" style="padding: 5px">
+                      <a class="dropdown-item" href="#">@mdo</a>
+                      <a class="dropdown-item" href="#">@fat</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left; margin-top: 5px">
+                <span style="font-weight: normal">Due Date</span>
+              </div>
+              <div style="float: right">
+                <button class="btn btn-outline">
+                  <i class="fas fa-sort"></i>
+                </button>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="dropdown" style="float: left">
+                <button class="btn btn-outline" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-filter"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding: 0">
+                  <div class="card text-left" style="border: none">
+                    <div class="card-header" style="padding: 5px">
+                      <div class="input-group">
+                        <label>
+                          <input type="text" class="form-control" placeholder="First"/>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card-body" style="padding: 5px">
+                      <a class="dropdown-item" href="#">Mark</a>
+                      <a class="dropdown-item" href="#">Jacob</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left; margin-top: 5px">
+                <span style="font-weight: normal">Status</span>
+              </div>
+              <div style="float: right">
+                <button class="btn btn-outline">
+                  <i class="fas fa-sort"></i>
+                </button>
+              </div>
+            </th>
+            <th scope="col">
+              <div style="float: left; margin-bottom: 8px">
+                <span style="font-weight: normal">Action</span>
+              </div>
+            </th>
+            <th scope="col">
+              <div style="float: left; margin-bottom: 8px">
+                <span style="font-weight: normal">Note</span>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let eachTodo of todoList">
+          <tr>
+            <td style="text-align: center">{{eachTodo.id}}</td>
+            <td>{{eachTodo.todoName}}</td>
+            <td>{{eachTodo.dateCreate}}</td>
+            <td>{{eachTodo.dueDate}}</td>
+            <td style="text-align: center">
+        <span [ngClass]=getColorForStatus(eachTodo.status)>
+          {{eachTodo.status}}
+        </span>
+            </td>
+            <td>{{eachTodo.note}}</td>
+            <td style="text-align: center">
+              <button
+                class="btn btn-sm btn-warning"
+                style="margin-right: 5px"
+                (click)="editTodo(eachTodo.id)"
+              >
+                <i class="fas fa-edit"></i>
+              </button>
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="deleteTodo(eachTodo.id)"
+              >
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li *ngFor="let page of pages" class="page-item" [ngClass]="{active: currentPage===page}">
+              <a class="page-link" (click)="getTodoByPage(page)">{{page}}</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
   <div class="col-md-1"></div>
+</div>
+
+<!--Modal add and edit todolist-->
+<div class="modal fade" id="modalTodoList" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="exampleModalLongTitle">{{title}}</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12">
+                <label for="todo_name" class="col-form-label">Todo Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="todo_name"
+                  formControlName="todo_name"
+                  [ngClass]="{ 'is-invalid': submitted && f.todo_name.errors }"
+                >
+                <div *ngIf="submitted && f.todo_name.errors" class="invalid-feedback">
+                  <div *ngIf="f.todo_name.errors.required">Todo Name is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label for="date_create" class="col-form-label">Date Create:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date_create"
+                  formControlName="date_create"
+                  [ngClass]="{ 'is-invalid': submitted && f.date_create.errors }"
+                >
+                <div *ngIf="submitted && f.date_create.errors" class="invalid-feedback">
+                  <div *ngIf="f.date_create.errors.required">Date create is required</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="due_date" class="col-form-label">Due Date:</label>
+                <input type="date" class="form-control" id="due_date" formControlName="due_date">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <label for="status" class="col-form-label">Status:</label>
+                <select
+                  class="form-control"
+                  id="status"
+                  formControlName="status"
+                  [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
+                >
+                  <option disabled></option>
+                  <option>Open</option>
+                  <option>Inprocess</option>
+                  <option>Success</option>
+                  <option>Close</option>
+                </select>
+                <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                  <div *ngIf="f.status.errors.required">Status is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <label for="note" class="col-form-label">Note:</label>
+                <textarea class="form-control" id="note" formControlName="note"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+            <button class="btn btn-sm btn-success">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal delete todolist-->
+<div class="modal fade" id="modalDeleteTodoList" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="exampleModalLongEditTitle">{{title}}</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span style="margin-bottom: 20px">
+            Are you sure delete todo with name: {{delTodoName}}
+          </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <button class="btn btn-sm btn-success" (click)="onDeleteTodo(delTodoId)">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 
